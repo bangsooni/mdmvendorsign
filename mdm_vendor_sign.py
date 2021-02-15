@@ -125,9 +125,11 @@ openssl rsa -in key.pem -out the_private_key.key
 
 
 	# TODO : Probably should verify these too
+    # https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer (Expiring 02/20/2030 12:00:00 UTC)
+    # http://www.apple.com/appleca/AppleIncRootCertificate.cer (Expiring 02/10/2035 21:40:36 UTC)
 
 	p('Downloading WWDR intermediate certificate...')
-	intermediate_cer = urllib2.urlopen('https://developer.apple.com/certificationauthority/AppleWWDRCA.cer').read()
+	intermediate_cer = urllib2.urlopen('https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer').read()
 	p(' converting to pem...')
 	intermediate_pem = cer_to_pem(intermediate_cer)
 	p('OK\n')
